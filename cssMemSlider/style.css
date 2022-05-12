@@ -14,6 +14,7 @@ html,
 body {
    height: 100%;
    scroll-behavior: smooth;
+   min-width: 20rem;
 
    /*ЗАПРЕТ ВЫДЕЛЕНИЯ ТЕКСТА*/
    -webkit-touch-callout: none; /* iOS Safari */
@@ -95,6 +96,10 @@ body {
    width: 90vw;
    margin: 0 auto;
    padding: 0 1.25rem;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: center;
 }
 .inputs {
 }
@@ -105,6 +110,7 @@ body {
    border: 1px solid #cccccc;
    margin: 1.25rem 0;
    overflow: hidden;
+   flex: 1 1 100%;
 }
 .slides__track {
    width: 400%;
@@ -146,15 +152,47 @@ body {
 }
 .dots {
    display: flex;
-
+}
+.dot__label{
+   display: block;
+   width: 3rem;
+   height: 3rem;
+   cursor: pointer;
+   padding: 1rem;
+   margin-left: .5rem;
 }
 .dot{
-   display: block;
-   width: 0.25rem;
-   height: 0.25rem;
+   width: 100%;
+   height: 100%;
    border-radius: 50%;
    background: #cccccc;
-   margin: .5rem;
-   padding: .5rem;
+}
+
+@media screen and (max-width: 768px) {
+   .slider__container{
+      flex-direction: column;
+      align-items: flex-start;
+   }
+   .slides{
+      width: 100%;
+      flex: auto;
+   }
+.labels{
+   order: 3;
+}
+.dots{
+   order: 2;
+   align-self: center;
+}
+
+}
+@media screen and (max-width: 540px) {
+   .dot__label{
+   display: block;
+   width: 2rem;
+   height: 2rem;
    cursor: pointer;
+   padding: .5rem;
+   margin-left: .125rem;
+}
 }
