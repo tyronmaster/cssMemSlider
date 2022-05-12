@@ -1,3 +1,9 @@
+:root{
+   --dark-color: #111111;
+   --green-light: #10e07e;
+   --green: #0aad5c;
+   --red: #d74b3c;
+}
 *,
 *:after,
 *:before {
@@ -24,67 +30,19 @@ body {
    -ms-user-select: none; /* Internet Explorer/Edge */
    user-select: none;
 }
-aside,
-nav,
-footer,
-header,
-section {
-   display: block;
-}
-a {
-   text-decoration: none;
-   color: #cccccc;
-   display: block;
-   transition: color 1s ease;
-   cursor: pointer;
-}
-a:hover {
-
-}
-a:active {
-   
-}
-button {
-   background: none;
-   border: none;
-   cursor: pointer;
-}
 input {
    display: none;
-}
-input:hover,
-input:focus {
-   border-color: none;
-}
-input::placeholder {
-   
-}
-input:placeholder-shown {
-   
-}
-ul li {
-   list-style: none;
 }
 img {
    vertical-align: top;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-   font-family: "Montserrat", sans-serif;
-   font-weight: normal;
-   color: #fcfcfc;
-}
 body {
    font-family: "Montserrat", sans-serif;
-   color: #fcfcfc;
+   color: var(--green);
    font-size: 1.25rem;
    font-weight: normal;
    line-height: 1.75rem;
-   background: #333;
+   background: var(--dark-color);
 }
 
 .wrapper {
@@ -107,9 +65,8 @@ body {
 }
 .slides {
    height: 80vh;
-   border: 1px solid #cccccc;
+   border: .1rem solid var(--green);
    margin: 1.25rem 0;
-   /*border-radius: .5rem;*/
    overflow: hidden;
    flex: 1 1 100%;
 }
@@ -137,16 +94,24 @@ body {
    background-size: cover;
 }
 .slide1 {
-   background: aqua;
+   background: url(./assets/img/fallout-01.jpg) center no-repeat;
+   background-size: cover;
+   /*background: aqua;*/
 }
 .slide2 {
-   background: antiquewhite;
+   background: url(./assets/img/fallout-02.jpg) center no-repeat;
+   background-size: cover;
+   /*background: antiquewhite;*/
 }
 .slide3 {
-   background: aquamarine;
+   background: url(./assets/img/fallout-03.jpg) center no-repeat;
+   background-size: cover;
+   /*background: aquamarine;*/
 }
 .slide4 {
-   background: cadetblue;
+   background: url(./assets/img/fallout-04.jpg) center no-repeat;
+   background-size: cover;
+   /*background: cadetblue;*/
 }
 .labels {
    display: flex;
@@ -167,7 +132,7 @@ body {
 #slide4:checked ~ .labels  label:nth-child(4){
    opacity: 1;
    visibility: visible;
-   color: #cccccc;
+   color: var(--green);
    order: -1;
    
 }
@@ -189,22 +154,22 @@ body {
    width: 100%;
    height: 100%;
    border-radius: 50%;
-   background: #cccccc;
+   background: var(--green);
    transition: .5s ease-in-out;
 }
 #slide1:checked ~ .dots .dot__label:nth-child(1) .dot,
 #slide2:checked ~ .dots .dot__label:nth-child(2) .dot,
 #slide3:checked ~ .dots .dot__label:nth-child(3) .dot,
 #slide4:checked ~ .dots .dot__label:nth-child(4) .dot {
-   background: aqua;
+   background: var(--red);
    transition: .5s ease-in-out;
 }
 .dot__label:hover{
-   border: .15rem solid aquamarine;
+   border: .15rem solid var(--red);
    transition: border .5s ease-in-out;
 }
 .dot__label:hover .dot{
-   background: aquamarine;
+   background: var(--red);
    transition: .5s ease-in-out;
 }
 
