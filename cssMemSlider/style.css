@@ -38,11 +38,10 @@ a {
    cursor: pointer;
 }
 a:hover {
-   color: var(--focus-color);
-   transition: color 0.5s ease;
+
 }
 a:active {
-   color: var(--focus-color);
+   
 }
 button {
    background: none;
@@ -50,29 +49,17 @@ button {
    cursor: pointer;
 }
 input {
-   background: none;
-   border: 1px solid var(--main-color);
-   border-radius: 10px;
-   padding: 15px;
-   padding-right: 45px;
-   color: var(--focus-color);
-   text-transform: uppercase;
-   margin: 0 15px;
-   width: 250px;
-   transition: 1s;
-   cursor: pointer;
+   display: none;
 }
 input:hover,
 input:focus {
-   border-color: var(--focus-color);
+   border-color: none;
 }
 input::placeholder {
-   color: var(--main-color);
-   text-transform: uppercase;
+   
 }
 input:placeholder-shown {
-   color: var(--main-color);
-   text-transform: uppercase;
+   
 }
 ul li {
    list-style: none;
@@ -86,16 +73,88 @@ h3,
 h4,
 h5,
 h6 {
-   font-family: "DoomRegular", sans-serif;
+   font-family: "Montserrat", sans-serif;
    font-weight: normal;
-   color: var(--light-color);
+   color: #fcfcfc;
 }
 body {
-   font-family: "DoomRegular", sans-serif;
-   color: var(--light-color);
-   font-size: 24px;
+   font-family: "Montserrat", sans-serif;
+   color: #fcfcfc;
+   font-size: 1.25rem;
    font-weight: normal;
-   line-height: 30px;
-   background: url("./assets/images/background.jpg") center no-repeat;
+   line-height: 1.75rem;
+   background: #333;
+}
+
+.wrapper {
+   min-height: 100%;
+   overflow: hidden;
+}
+.slider__container {
+   /*max-width: 1440px;*/
+   width: 90vw;
+   margin: 0 auto;
+   padding: 0 1.25rem;
+}
+.inputs {
+}
+.slider__input {
+}
+.slides {
+   height: 80vh;
+   border: 1px solid #cccccc;
+   margin: 1.25rem 0;
+   overflow: hidden;
+}
+.slides__track {
+   width: 400%;
+   height: 100%;
+   display: flex;
+   flex-direction: row;
+}
+#slide1:checked ~ .slides .slides__track{
+   margin-left: 0;
+}
+#slide2:checked ~ .slides .slides__track{
+   margin-left: -100%;
+}
+#slide3:checked ~ .slides .slides__track{
+   margin-left: -200%;
+}
+#slide4:checked ~ .slides .slides__track{
+   margin-left: -300%;
+}
+.slide {
+   width: 25%;
    background-size: cover;
+}
+.slide1 {
+   background: aqua;
+}
+.slide2 {
+   background: antiquewhite;
+}
+.slide3 {
+   background: aquamarine;
+}
+.slide4 {
+   background: cadetblue;
+}
+.labels {
+}
+.label {
+}
+.dots {
+   display: flex;
+
+}
+.dot{
+   display: block;
+   width: 0.25rem;
+   height: 0.25rem;
+   border-radius: 50%;
+   background: #cccccc;
+   margin: .5rem;
+   padding: .5rem;
+   cursor: pointer;
 }
