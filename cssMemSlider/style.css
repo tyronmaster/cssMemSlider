@@ -166,6 +166,10 @@ img {
   border: 0.15rem solid var(--red);
   transition: border 0.5s ease-in-out;
 }
+.dot__label:active {
+  border: 0.15rem dotted var(--red);
+  transition: border 0.5s ease-in-out;
+}
 .dot__label:hover .dot {
   background: var(--red);
   transition: 0.5s ease-in-out;
