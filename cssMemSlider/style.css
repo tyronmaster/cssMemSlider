@@ -28,7 +28,7 @@ body {
   /*font-family: "Montserrat", sans-serif;*/
   font-family: var(--font);
   color: var(--green);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: normal;
   line-height: 1.75rem;
   /*background: var(--dark-color);*/
@@ -141,16 +141,16 @@ img {
   animation: typing 4s steps(35);
 }
 #slide2:checked ~ .labels .label:nth-child(2) {
-  width: 39ch;
-  animation: typing 4s steps(39);
+  width: 40ch;
+  animation: typing 4s steps(40);
 }
 #slide3:checked ~ .labels .label:nth-child(3) {
   width: 28ch;
   animation: typing 3.5s steps(28);
 }
 #slide4:checked ~ .labels .label:nth-child(4) {
-  width: 22ch;
-  animation: typing 3s steps(22);
+  width: 23ch;
+  animation: typing 3s steps(23);
 }
 @keyframes typing {
   from {
@@ -162,7 +162,7 @@ img {
   display: inline-block;
   background: var(--green);
   /*line-height: 1.15rem;*/
-  width: 0.525rem;
+  width: 0.5rem;
   height: 1.15rem;
   vertical-align: middle;
   animation: 1s blink step-end infinite;
@@ -232,7 +232,8 @@ img {
     order: 3;
   }
   .label {
-    font-size: 1.125rem;
+    font-size: 0.72rem;
+    letter-spacing: -.11rem;
   }
   .dots {
     order: 2;
