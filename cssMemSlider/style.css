@@ -70,6 +70,34 @@ img {
   margin: 1.25rem 0;
   overflow: hidden;
   flex: 1 1 100%;
+
+  animation: pulse-light 6s infinite;
+}
+@keyframes pulse-light {
+  from {
+    box-shadow:
+      0 0 5px var(--green),
+      0 0 10px var(--green),
+      inset 0 0 5px var(--green),
+      inset 0 0 10px var(--green)
+    ;
+  }
+  50% {
+    box-shadow:
+      0 0 10px var(--dark-color),
+      0 0 20px var(--dark-color),
+      inset 0 0 10px var(--dark-color),
+      inset 0 0 20px var(--dark-color)
+    ;
+  }
+  to {
+    box-shadow:
+      0 0 5px var(--green),
+      0 0 10px var(--green),
+      inset 0 0 5px var(--green),
+      inset 0 0 10px var(--green)
+    ;
+  }
 }
 .slides__track {
   width: 400%;
