@@ -1,8 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+
 :root {
   --dark-color: #111111;
   --green-light: #10e07e;
   --green: #0aad5c;
   --red: #d74b3c;
+  --font: "Share Tech Mono", monospace;
 }
 *,
 *:after,
@@ -21,15 +24,12 @@ body {
   height: 100%;
   width: 100%;
   scroll-behavior: smooth;
-  /*min-width: 20rem;*/
 
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font);
   color: var(--green);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: normal;
   line-height: 1.75rem;
-  /*background: var(--dark-color);*/
-
 
   /*ЗАПРЕТ ВЫДЕЛЕНИЯ ТЕКСТА*/
   -webkit-touch-callout: none; /* iOS Safari */
@@ -39,7 +39,8 @@ body {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
 }
-input {
+input,
+.slider__input  {
   display: none;
 }
 img {
@@ -53,19 +54,14 @@ img {
   background-size: cover;
 }
 .slider__container {
-   min-height: 100vh;
+  min-height: 100vh;
   width: 90vw;
-  /*height: 100%;*/
   margin: 0 auto;
   padding: 1.25rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  
-}
-.slider__input {
-  display: none;
 }
 .slides {
   height: calc(100vmin / 1.5);
@@ -74,6 +70,34 @@ img {
   margin: 1.25rem 0;
   overflow: hidden;
   flex: 1 1 100%;
+
+  animation: pulse-light 6s infinite;
+}
+@keyframes pulse-light {
+  from {
+    box-shadow:
+      0 0 .325rem var(--green),
+      0 0 1rem var(--green),
+      inset 0 0 .325rem var(--green),
+      inset 0 0 .625rem var(--green)
+    ;
+  }
+  50% {
+    box-shadow:
+      0 0 .625rem var(--dark-color),
+      0 0 1.25rem var(--dark-color),
+      inset 0 0 .625rem var(--dark-color),
+      inset 0 0 1.25rem var(--dark-color)
+    ;
+  }
+  to {
+    box-shadow:
+      0 0 .325rem var(--green),
+      0 0 .625rem var(--green),
+      inset 0 0 .325rem var(--green),
+      inset 0 0 .625rem var(--green)
+    ;
+  }
 }
 .slides__track {
   width: 400%;
@@ -138,6 +162,45 @@ img {
   color: var(--green);
   order: -1;
 }
+#slide1:checked ~ .labels .label:nth-child(1) {
+  width: 35ch;
+  animation: typing 4s steps(35);
+}
+#slide2:checked ~ .labels .label:nth-child(2) {
+  width: 40ch;
+  animation: typing 4s steps(40);
+}
+#slide3:checked ~ .labels .label:nth-child(3) {
+  width: 28ch;
+  animation: typing 3.5s steps(28);
+}
+#slide4:checked ~ .labels .label:nth-child(4) {
+  width: 23ch;
+  animation: typing 3s steps(23);
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+.cursor {
+  content: "";
+  display: inline-block;
+  background: var(--green);
+  width: 0.5rem;
+  height: 1.15rem;
+  vertical-align: middle;
+  animation: 1s blink step-end infinite;
+}
+@keyframes blink {
+  from,
+  to {
+    background: transparent;
+  }
+  50% {
+    background: var(--green);
+  }
+}
 .dots {
   display: flex;
 }
@@ -147,7 +210,6 @@ img {
   height: 2.125rem;
   cursor: pointer;
   padding: 0.5rem;
-  /*margin-left: .5rem;*/
   border: 0.15rem solid transparent;
   border-radius: 50%;
   transition: 0.5s ease-in-out;
@@ -170,6 +232,10 @@ img {
   border: 0.15rem solid var(--red);
   transition: border 0.5s ease-in-out;
 }
+.dot__label:active {
+  border: 0.15rem dotted var(--red);
+  transition: border 0.5s ease-in-out;
+}
 .dot__label:hover .dot {
   background: var(--red);
   transition: 0.5s ease-in-out;
@@ -177,21 +243,28 @@ img {
 
 @media screen and (max-width: 768px) {
   .slider__container {
-     width: 95vw;
-     padding: 1.25rem .75rem;
+    width: 95vw;
+    padding: 1.25rem 0.75rem;
     flex-direction: column;
     align-items: flex-start;
-    justify-content:flex-start;
+    justify-content: flex-start;
   }
   .slides {
-   height: calc(90vmin / 1.62);
+    height: calc(90vmin / 1.62);
     flex: 0 0 auto;
   }
   .labels {
     order: 3;
   }
   .label {
-    font-size: 18px;
+    font-size: 0.72rem;
+    letter-spacing: -.11rem;
+  }
+  .cursor {
+    width: 0.3rem;
+    height: 0.875rem;
+    vertical-align: middle;
+    animation: 1s blink step-end infinite;
   }
   .dots {
     order: 2;
@@ -203,8 +276,5 @@ img {
     height: 1.75rem;
     cursor: pointer;
     padding: 0.375rem;
-    /*margin-left: .125rem;*/
   }
-}
-@media screen and (max-width: 540px) {
 }
